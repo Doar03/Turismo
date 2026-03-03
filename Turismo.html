@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo La Cruz Nariño</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>Turismo La Cruz Nariño</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio" class="nav-button active" onclick="mostrarSeccion('inicio')">
+                    <i class="fas fa-home"></i> Inicio
+                </a></li>
+                <li><a href="#paquetes" class="nav-button" onclick="mostrarSeccion('paquetes')">
+                    <i class="fas fa-suitcase"></i> Paquetes
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SECCIÓN INICIO  -->
+    <section id="inicio" class="seccion-activa">
+        <div class="hero">
+            <h2>Bienvenido a La Cruz Nariño</h2>
+            <p>Descubre la belleza y cultura de nuestro municipio</p>
+        </div>
+
+        <div class="contenido-seccion">
+            <!-- Formulario -->
+            <div class="formulario-container">
+                <h3><i class="fas fa-user-plus"></i> Regístrate para más información</h3>
+                <form id="dataForm">
+                    <div class="grupo-form">
+                        <label for="nombre"><i class="fas fa-user"></i> Nombre completo *</label>
+                        <input type="text" id="nombre" class="campo-input" placeholder="Ej: Juan Pérez" required>
+                    </div>
+                    
+                    <div class="grupo-form">
+                        <label for="email"><i class="fas fa-envelope"></i> Email *</label>
+                        <input type="email" id="email" class="campo-input" placeholder="ejemplo@correo.com" required>
+                    </div>
+                    
+                    <div class="grupo-form">
+                        <label for="telefono"><i class="fas fa-phone"></i> Teléfono</label>
+                        <input type="tel" id="telefono" class="campo-input" placeholder="Ej: 3001234567">
+                    </div>
+                    
+                    <div class="grupo-form">
+                        <label for="ciudad"><i class="fas fa-city"></i> Ciudad *</label>
+                        <input type="text" id="ciudad" class="campo-input" placeholder="Ej: La Cruz" required>
+                    </div>
+                    
+                    <!-- NUEVO CAMPO DE AGENCIA -->
+                    <div class="grupo-form">
+                        <label for="agencia"><i class="fas fa-building"></i> Agencia *</label>
+                        <select id="agencia" class="campo-input campo-select" required>
+                            <option value="">-- Seleccionar agencia --</option>
+                            <option value="Turismo Andino">Turismo Andino</option>
+                        </select>
+                        <small class="texto-ayuda">Selecciona la agencia de viajes</small>
+                    </div>
+                    
+                    <div class="grupo-form">
+                        <label for="paquete-interes"><i class="fas fa-suitcase"></i> Paquete de interés</label>
+                        <input type="text" id="paquete-interes" class="campo-input" readonly>
+                        <small class="texto-ayuda">Selecciona un paquete en la sección "Paquetes"</small>
+                    </div>
+                                <div class="grupo-form">
+    <label for="cantidad-personas">
+        <i class="fas fa-users"></i> Cantidad de personas *
+    </label>
+    <select id="cantidad-personas" class="campo-input campo-select" required>
+        <option value="">-- Seleccionar cantidad --</option>
+        <option value="1">1 persona</option>
+        <option value="2">2 personas</option>
+        <option value="3">3 personas</option>
+        <option value="4">4 personas</option>
+        <option value="5">5 personas</option>
+        <option value="6">6 personas</option>
+        <option value="7">7 personas</option>
+        <option value="8">8 personas</option>
+        <option value="9">9 personas</option>
+        <option value="10">10 personas</option>
+    </select>
+    <small class="texto-ayuda">Número de personas que viajarán</small>
+</div>
+                    <button type="submit" class="btn-enviar">
+                        <i class="fas fa-paper-plane"></i> Enviar información
+                    </button>
+                </form>
+                <div id="resultado"></div>
+
+            </div>
+    
+
+            <!-- Clima -->
+            <div id="clima" class="clima-container">
+                <h3><i class="fas fa-cloud-sun"></i> Clima en La Cruz, Nariño</h3>
+                <div id="clima-info" class="clima-contenedor">
+                    <div class="cargando-clima">
+                        <i class="fas fa-spinner fa-spin"></i> Cargando información del clima...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PAQUETES -->
+    <section id="paquetes" class="seccion-oculta">
+        <div class="hero-paquetes">
+            <h2><i class="fas fa-suitcase-rolling"></i> Nuestros Paquetes Turísticos</h2>
+            <p>Experiencias únicas que no te puedes perder en La Cruz, Nariño</p>
+        </div>
+
+        <div class="contenedor-paquetes">
+            <!-- Paquete 1 - TERMALES -->
+            <div class="paquete-card" data-paquete="termales">
+                <div class="paquete-imagen">
+                    <img src="termales.png" 
+                    alt="Termales de Tajumbina" 
+                    loading="lazy">
+                </div>
+                <div class="paquete-contenido">
+                    <h3><i class="fas fa-hot-tub"></i> Termales de Tajumbina</h3>
+                    <p>Relájate en las aguas termales naturales de Tajumbina. Disfruta de un día completo de relajación y bienestar en medio de la naturaleza.</p>
+                    <div class="paquete-info">
+                        <span><i class="fas fa-clock"></i> 1 día completo</span>
+                        <span><i class="fas fa-money-bill-wave"></i> $150.000 COP</span>
+                    </div>
+                    <button class="btn-detalles" onclick="mostrarModalDetalles('termales')">
+                        <i class="fas fa-info-circle"></i> Ver detalles completos
+                    </button>
+                </div>
+            </div>
+
+            <!-- Paquete 2 - CARNAVAL -->
+            <div class="paquete-card" data-paquete="carnaval">
+                <div class="paquete-imagen">
+                    <img src="carnaval .png" 
+                        alt="Carnaval de Blancos y Negros"
+                        loading="lazy">
+                </div>
+                <div class="paquete-contenido">
+                    <h3><i class="fas fa-mask"></i> Carnaval de Blancos y Negros</h3>
+                    <p>Vive la alegría, música y colorido del tradicional Carnaval. Participa en desfiles, conciertos y actividades culturales únicas.</p>
+                    <div class="paquete-info">
+                        <span><i class="fas fa-clock"></i> 2 días / 1 noche</span>
+                        <span><i class="fas fa-money-bill-wave"></i> $250.000 COP</span>
+                    </div>
+                    <button class="btn-detalles" onclick="mostrarModalDetalles('carnaval')">
+                        <i class="fas fa-info-circle"></i> Ver detalles completos
+                    </button>
+                </div>
+            </div>
+
+            <!-- Paquete 3 - VOLCÁN -->
+            <div class="paquete-card" data-paquete="volcan">
+                <div class="paquete-imagen">
+                    <img src="https://i.ytimg.com/vi/Ci7YB-u65J4/maxresdefault.jpg" 
+                        alt="Volcán Las Animas" 
+                        loading="lazy">
+                </div>
+                <div class="paquete-contenido">
+                    <h3><i class="fas fa-mountain"></i> Volcán Las Animas</h3>
+                    <p>Aventura extrema. Senderismo, observación de fauna y flora, y vistas panorámicas desde uno de los volcanes más impresionantes.</p>
+                    <div class="paquete-info">
+                        <span><i class="fas fa-clock"></i> 1 día (aventura)</span>
+                        <span><i class="fas fa-money-bill-wave"></i> $120.000 COP</span>
+                    </div>
+                    <button class="btn-detalles" onclick="mostrarModalDetalles('volcan')">
+                        <i class="fas fa-info-circle"></i> Ver detalles completos
+                    </button>
+                </div>
+            </div>
+
+            <!-- Paquete 4 - MUSEO -->
+            <div class="paquete-card" data-paquete="museo">
+                <div class="paquete-imagen">
+                    <img src="museo.png" 
+                        alt="Museo las Animas" 
+                        loading="lazy">
+                </div>
+                <div class="paquete-contenido">
+                    <h3><i class="fas fa-landmark"></i> Museo las Animas</h3>
+                    <p>Viaje al pasado. Conoce la historia, tradiciones y artefactos arqueológicos de nuestros antepasados indígenas y colonizadores.</p>
+                    <div class="paquete-info">
+                        <span><i class="fas fa-clock"></i> Medio día cultural</span>
+                        <span><i class="fas fa-money-bill-wave"></i> $80.000 COP</span>
+                    </div>
+                    <button class="btn-detalles" onclick="mostrarModalDetalles('museo')">
+                        <i class="fas fa-info-circle"></i> Ver detalles completos
+                    </button>
+                </div>
+            </div>
+
+            <!-- Paquete 5 - COMPLETO -->
+            <div class="paquete-card" data-paquete="completo">
+                <div class="paquete-imagen">
+                    <img src="https://images.unsplash.com/photo-1585506936722-fa4c85b9a6f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                        alt="Paquete Completo La Cruz" 
+                        loading="lazy">
+                </div>
+                <div class="paquete-contenido">
+                    <h3><i class="fas fa-crown"></i> Experiencia Completa La Cruz</h3>
+                    <p>¡Lo mejor de todo! Incluye todos los paquetes anteriores más hospedaje en hotel boutique y comida gourmet regional.</p>
+                    <div class="paquete-info">
+                        <span><i class="fas fa-clock"></i> 3 días / 2 noches</span>
+                        <span><i class="fas fa-money-bill-wave"></i> $650.000 COP</span>
+                    </div>
+                    <button class="btn-detalles" onclick="mostrarModalDetalles('completo')">
+                        <i class="fas fa-info-circle"></i> Ver detalles completos
+                    </button>
+                </div>
+            </div>
+
+            <!-- Paquete 6 - AVENTURA -->
+            <div class="paquete-card" data-paquete="aventura">
+                <div class="paquete-imagen">
+                    <img src="aventura.png" 
+                        alt="Aventura Extrema"
+                        loading="lazy">
+                </div>
+                <div class="paquete-contenido">
+                    <h3><i class="fas fa-hiking"></i> Aventura Extrema Nariño</h3>
+                    <p>Rappel, canopy, caminatas ecológicas y más. Para los amantes de la adrenalina y el deporte al aire libre.</p>
+                    <div class="paquete-info">
+                        <span><i class="fas fa-clock"></i> 2 días de aventura</span>
+                        <span><i class="fas fa-money-bill-wave"></i> $320.000 COP</span>
+                    </div>
+                    <button class="btn-detalles" onclick="mostrarModalDetalles('aventura')">
+                        <i class="fas fa-info-circle"></i> Ver detalles completos
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-adicional">
+            <div class="info-card">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Seguro Incluido</h4>
+                <p>Todos nuestros paquetes incluyen seguro de viaje y asistencia médica.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-utensils"></i>
+                <h4>Alimentación</h4>
+                <p>Comidas típicas nariñenses incluidas según el paquete seleccionado.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-car"></i>
+                <h4>Transporte</h4>
+                <p>Recogida y regreso incluidos desde puntos estratégicos del municipio.</p>
+            </div>
+        </div>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
