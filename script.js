@@ -4,7 +4,7 @@ const CONFIG = {
     CIUDAD_CLIMA: 'La Cruz,CO'
 };
 
-// Datos de los paquetes turísticos 
+// Datos de los paquetes turísticos actualizados
 const PAQUETES_INFO = {
     termales: {
         titulo: "Termales de Tajumbina",
