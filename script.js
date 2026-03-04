@@ -219,7 +219,7 @@ function mostrarDetallesPaquete(idPaquete) {
         campoPaquete.value = paquete.titulo;
     }
     
-    // HTML del modal
+    // HTML del modal actualizado
     const modalHTML = `
         <div class="modal-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); z-index: 9998;" onclick="cerrarModal()"></div>
         <div class="ventana-modal" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; max-width: 700px; width: 90%; max-height: 90vh; overflow-y: auto; border-radius: 15px; box-shadow: 0 25px 50px rgba(0,0,0,0.5); z-index: 9999; padding: 0;">
